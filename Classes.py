@@ -6,11 +6,11 @@ Created on Wed Oct 28 15:59:08 2020
 """
 # function for printing strings a bit more slowly
 import sys, time
-def printSlow(str):
+def printSlow(str, x = 0.01):
     for letter in str:
         sys.stdout.write(letter)
         sys.stdout.flush()
-        time.sleep(0.1)
+        time.sleep(x)
  
 # function for the dice roll
 import random

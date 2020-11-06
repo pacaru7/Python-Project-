@@ -40,7 +40,7 @@ stats = Player("Name",
                    "Spain":                  "EU",
                    "Sweden":                 "EU"})
  
-# function for junctions
+# function for dict junctions
 def question(aDictionary):
     userInput = None
     printSlow(aDictionary["question"])
@@ -62,30 +62,12 @@ def question(aDictionary):
             
         else:
             printSlow(userInput + " is not a Valid Answer.\n")
-            
+        
+# function for successful level 1
 def lvl1up(): 
     printSlow("Congratulations. You made it to your flight on time, and "\
           "will be arriving in Berlin shortly.")
-# Level 1 (transportation) for dice roll of 1
-L1_1 = [{
-  
-    "question": "Will you go home or pay 20 units of money "\
-                "for a new flight?\n",
-    "answers" : ["Go home", "Pay"],
-    "results" : ["You chose to go home.\n", "You chose to pay 20 units "\
-                "of money for a new flight.\n"]
-    
-    }]
-            
-# Level 1 (transportation) for dice roll of 2 to 5
-L1_25 = [{ 
-    
-     "question": "Will you take an Uber or public transportation?\n",
-     "answers" : ["Uber","Public transportation"],
-     "results" : ["You chose Uber.\n","You chose public transportation.\n"] 
-    
-    }]
-
+        
        
 # function for initial game setting, including name, country & assets 
 def game_setting(): 
@@ -94,6 +76,8 @@ def game_setting():
     printSlow("Welcome to the game, " + stats.getName() + "!\n")
     stats.setCountry(str(input(printSlow("Your nationality will "\
     "determine your gameplay. What is your nationality?\n"))))         
+
+from Dictionaries import L1_1, L1_25, L2_25
 
 # function for gameplay
 def game(): 
@@ -116,34 +100,48 @@ def game():
         for x in range(len(L1_25)):
             y = question(L1_25[x])
             if y == L1_25[0]["results"][0]:
+                if m == 2: 
+                    assets.assetChange(45, 50, -30)
+                elif m == 3: 
+                    assets.assetChange(40, 30, -20) 
+                elif m == 4: 
+                    assets.assetChange(35, 20, -10)
+                else: 
+                    assets.assetChange(30, 10, -5)
                 if actioncard() > 50: 
                     printSlow("You temporarily got stuck in "\
-                                  "a traffic jam and lost some "\
-                                  "valuable time.\n")
+                          "a traffic jam and lost some "\
+                        "valuable time.\n")
                     assets.assetChange(0, 30, 0)
-                    lvl1up()
                 else: 
                     printSlow("The uber driver connects you "\
-                                  "to a friend of his in Berlin "\
-                                  "who will happily help you out.\n")
+                             "to a friend of his in Berlin "\
+                             "who will happily help you out.\n")
                     assets.assetChange(0, 0, -20)
-                    lvl1up()
-            if y == L1_25[0]["results"][1]: 
-                if actioncard() > 50: 
-                    if actioncard() > 50: 
-                        printSlow("You got lost and lost valuable "\
-                                      "time.\n")
-                        assets.assetChange(0, 20, 0)
-                        lvl1up()
-                    else: 
-                        printSlow("You forgot to validate your "\
-                                      "ticket and had to pay a penalty.\n")
-                        assets.assetChange(30, 0, 0)
-                        lvl1up()
+                lvl1up()
+            elif y == L1_25[0]["results"][1]:
+                if m == 2: 
+                    assets.assetChange(5, 20, 0)
+                elif m == 3: 
+                    assets.assetChange(5, 15, 0)
+                elif m == 4: 
+                    assets.assetChange(5, 10, 0)
                 else: 
-                        lvl1up()
-    elif x == 6: 
+                    assets.assetChange(5, 5, 0)
+                if actioncard() > 50: 
+                    printSlow("You got lost and lost valuable "\
+                                      "time.\n")
+                    assets.assetChange(0, 20, 0)
+                else: 
+                    printSlow("You forgot to validate your "\
+                                      "ticket and had to pay a penalty.\n")
+                    assets.assetChange(30, 0, 0)
+                lvl1up()
+    elif m == 6: 
         lvl1up()
+    printSlow(". . .", 0.5)
+    printSlow("Yay, you arrived in Berlin. But how do you get to your accommodation?")
+    
         
     
 # data for class specification 
