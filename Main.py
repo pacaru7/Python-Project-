@@ -55,24 +55,7 @@ def question(aDictionary):
             printSlow(aDictionary["results"][1])
             return aDictionary["results"][1]
         else:
-            printSlow(userInput + " is not a Valid Answer.\n")
-        
-# function for successful level 1. possibly replace by dict
-def lvl1up(): 
-    printSlow("Congratulations. You made it to your flight on time, and "\
-          "will be arriving in Berlin shortly.\n")
-def lvl2up(x = 1): 
-    if x == 1: 
-        printSlow("You got an international SIM card and can access Google "\
-                  "maps to get to your accomodation.")
-        printSlow("\n...\n", 0.5)
-        printSlow("Yay, you've made it to your accomodation!\n")
-    else: 
-        printSlow("Yaay, you've made it to your accomodation!\n")
-def lvl3up(): 
-    printSlow("Your passport photos fit the criteria and you are ready to "\
-              "proceed to your appointments.\n")
-        
+            printSlow(userInput + " is not a Valid Answer.\n")        
        
 # function for initial game setting, including name, country & assets 
 def game_setting(): 
@@ -82,7 +65,7 @@ def game_setting():
     stats.setCountry(str(input(printSlow("Your nationality will "\
     "determine your gameplay. What is the country of your nationality?\n"))))         
 
-from Dictionaries import L1_1, L1_25, L2_25, L3_16
+from Dictionaries import L1_1, L1_25, L2_25, L3_16, Lvlup 
 
 # function for gameplay
 def game(): 
@@ -102,7 +85,7 @@ def game():
                 printSlow("You went home. Gameover.")
             elif y == L1_1[0]["results"][1]: 
                 assets.assetChange(20, 0, 0)
-                lvl1up()
+                printSlow(Lvlup[0]["lvl1"])
     elif (m == 2 or m == 3 or m == 4 or m == 5):  
         for x in range(len(L1_25)):
             y = question(L1_25[x])
@@ -122,7 +105,7 @@ def game():
                 else: 
                     printSlow(L1_25[0]["actioncard_u"][1])
                     assets.assetChange(0, 0, -20)
-                lvl1up()
+                printSlow(Lvlup[0]["lvl1"])
             # Public transportation
             elif y == L1_25[0]["results"][1]:
                 if m == 2: 
@@ -139,9 +122,9 @@ def game():
                 else: 
                     printSlow(L1_25[0]["actioncard_p"][1])
                     assets.assetChange(30, 0, 0)
-                lvl1up()
+                printSlow(Lvlup[0]["lvl1"])
     elif m == 6: 
-        lvl1up()
+        printSlow(Lvlup[0]["lvl1"])
     printSlow("\n. . .\n", 0.5)
     printSlow("Yay, you arrived in Berlin. But how do you get to your accommodation?")
     printSlow(input("Press enter to continue."))
@@ -153,7 +136,7 @@ def game():
         printSlow("For some reason, you felt like walking, so you walked all "\
                   "the way from the airport to your accommodation.\n") 
         assets.assetChange(0, 60, 0)
-        lvl2up(2)
+        printSlow(Lvlup[0]["lvl2"])
     elif (m == 2 or m == 3 or m == 4 or m == 5):  
         for x in range(len(L2_25)):
             y = question(L2_25[x])
@@ -172,7 +155,7 @@ def game():
                 else: 
                     printSlow(L2_25[0]["actioncard_u"][1])
                     assets.assetChange(0, 0, -20)
-                lvl2up()
+                printSlow(Lvlup[0]["lvl2"])
             elif y == L2_25[0]["results"][1]:
                 if m == 2: 
                     assets.assetChange(5, 20, 0)
@@ -188,9 +171,9 @@ def game():
                 else: 
                     printSlow(L2_25[0]["actioncard_p"][1])
                     assets.assetChange(30, 0, 0)
-                lvl2up()
+                printSlow(Lvlup[0]["lvl2"])
     elif m == 6: 
-        lvl2up(2)
+        printSlow(Lvlup[0]["lvl2"])
 # Possibility of adding bank account, health insurance as extra levels 
 # Level 3: Photos for residence permit/Anmeldung 
     printSlow("You've settled in for a couple days. But for you to stay and "\
@@ -208,11 +191,20 @@ def game():
     if (m == 3 or m == 4): 
         printSlow(L3_16[0]["x34"])
         assets.assetChange(5, 0, 0)
-        lvl3up()
+        printSlow(Lvlup[0]["lvl3"])
     if (m == 5 or m == 6): 
         printSlow(L3_16[0]["x56"])
         assets.assetChange(20, 0, 0)
-        lvl3up()
+        printSlow(Lvlup[0]["lvl3"])
+# Paths are yet to be finished !!
+# Level 4: Anmeldung or Residence Permit 
+    x = printSlow(input("Which one do you want to do first: " \
+                        "Anmeldung or residence permit?\n"))
+    if x.lower() == "anmeldung": 
+        pass
+    elif x.lower() == "residence permit": 
+        pass 
+    
         
     
     

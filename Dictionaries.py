@@ -5,6 +5,20 @@ Created on Fri Nov  6 12:52:58 2020
 @author: ba-li
 """
 
+# Level up messages 
+
+Lvlup = [{
+    "lvl1": "Congratulations. You made it to your flight on time, and "\
+          "will be arriving in Berlin shortly.\n", 
+    "lvl2": ["You got an international SIM card and can access Google "\
+             "maps to get to your accomodation.\n" \
+              "Yay, you've made it to your accomodation!\n", 
+              "Yay, you've made it to your accomodation!\n"], 
+    "lvl3": "Your passport photos fit the criteria and you are ready to "\
+              "proceed to your appointments.\n"
+    
+    }]
+
 # Level 1 (transportation) for dice roll of 1
 L1_1 = [{
     "question": "Will you go home or pay 20 units of money "\
