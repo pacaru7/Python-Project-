@@ -19,12 +19,39 @@ L1_1 = [{
 L1_25 = [{ 
      "question": "Will you take an Uber or Public transportation?\n",
      "answers" : ["Uber","Public"],
-     "results" : ["You chose Uber.\n","You chose public transportation.\n"] 
+     "results" : ["You chose Uber.\n","You chose public transportation.\n"], 
+     "actioncard_u": ["You temporarily got stuck in a traffic jam and lost "\
+                    "some valuable time.\n", "The uber driver connects you "\
+                    "to a friend of his in Berlin who will happily help " \
+                    "you out.\n"],
+    "actioncard_p": ["You got lost and lost valuable "\
+                    "time.\n", "You forgot to validate your "\
+                    "ticket and had to pay a penalty.\n"]
     }]
 
 # Level 2 (transportation in Berlin) 
 L2_25 = [{
      "question": "Will you take an Uber or Public transportation?\n",
      "answers" : ["Uber","Public"],
-     "results" : ["You chose Uber.\n","You chose public transportation.\n"] 
+     "results" : ["You chose Uber.\n","You chose public transportation.\n"], 
+     "actioncard_u": ["You temporarily got stuck in a traffic jam and lost "\
+                      "some valuable time.\n", "The uber driver has a nephew "\
+                      "in Berlin who will help you out in need.\n"], 
+     "actioncard_p": ["You got lost and lost valuable time.\n", 
+                      "You forgot to validate your "\
+                      "ticket and had to pay a penalty.\n"]
+    }]
+
+# Level 3 (photo for residence permit/Anmeldung) 
+L3_16 = [{
+    "x1": "Oops, you've tried to use old photos. They got rejected "\
+        "and you wasted time in that attempt.\n",
+    "x2": "You went to a photo box but there was a rat that bit you. "\
+        "You needed to go the hospital, and lost time and money.\n", 
+    "x34": "You used a photo box at some random S-Bahn station close "\
+        "to your home and it worked out just fine.""You used a photo "\
+        "box at some random S-Bahn station close to your home and it "\
+        "worked out just fine.\n",
+    "x56": "You went to a professional photo shop."
+    
     }]

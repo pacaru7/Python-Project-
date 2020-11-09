@@ -44,29 +44,34 @@ stats = Player("Name",
 def question(aDictionary):
     userInput = None
     printSlow(aDictionary["question"])
-    
     while userInput not in aDictionary["answers"]:   
         printSlow("Write " + aDictionary["answers"][0] + " or " 
                   + aDictionary["answers"][1]+ ".\n")
         userInput = input() 
-        
-        if userInput == aDictionary["answers"][0]:
+        if userInput == aDictionary["answers"][0].lower():
             printSlow(aDictionary["results"][0])
             return aDictionary["results"][0]
-            
-            
-        elif userInput == aDictionary["answers"][1]:
+        elif userInput == aDictionary["answers"][1].lower():
             printSlow(aDictionary["results"][1])
             return aDictionary["results"][1]
-            
-            
         else:
             printSlow(userInput + " is not a Valid Answer.\n")
         
-# function for successful level 1
+# function for successful level 1. possibly replace by dict
 def lvl1up(): 
     printSlow("Congratulations. You made it to your flight on time, and "\
-          "will be arriving in Berlin shortly.")
+          "will be arriving in Berlin shortly.\n")
+def lvl2up(x = 1): 
+    if x == 1: 
+        printSlow("You got an international SIM card and can access Google "\
+                  "maps to get to your accomodation.")
+        printSlow("\n...\n", 0.5)
+        printSlow("Yay, you've made it to your accomodation!\n")
+    else: 
+        printSlow("Yaay, you've made it to your accomodation!\n")
+def lvl3up(): 
+    printSlow("Your passport photos fit the criteria and you are ready to "\
+              "proceed to your appointments.\n")
         
        
 # function for initial game setting, including name, country & assets 
@@ -75,9 +80,9 @@ def game_setting():
     stats.setName(str(input(printSlow("Please tell us your name.\n"))))
     printSlow("Welcome to the game, " + stats.getName() + "!\n")
     stats.setCountry(str(input(printSlow("Your nationality will "\
-    "determine your gameplay. What is your nationality?\n"))))         
+    "determine your gameplay. What is the country of your nationality?\n"))))         
 
-from Dictionaries import L1_1, L1_25, L2_25
+from Dictionaries import L1_1, L1_25, L2_25, L3_16
 
 # function for gameplay
 def game(): 
@@ -86,6 +91,8 @@ def game():
     "How will you proceed to the airport for your flight to Berlin?\n"\
     "Let's see if the luck is in your hands.\n")
     printSlow(input("Press enter to continue."))
+
+# Level 1: transportation from residence to airport 
     m = diceRoll()
     printSlow("You rolled a " + str(m) + ".\n")
     if m == 1: 
@@ -99,7 +106,8 @@ def game():
     elif (m == 2 or m == 3 or m == 4 or m == 5):  
         for x in range(len(L1_25)):
             y = question(L1_25[x])
-            if y == L1_25[0]["results"][0]:
+            # Uber
+            if y == L1_25[0]["results"][0]: 
                 if m == 2: 
                     assets.assetChange(45, 50, -30)
                 elif m == 3: 
@@ -109,16 +117,13 @@ def game():
                 else: 
                     assets.assetChange(30, 10, -5)
                 if actioncard() > 50: 
-                    printSlow("You temporarily got stuck in "\
-                          "a traffic jam and lost some "\
-                        "valuable time.\n")
+                    printSlow(L1_25[0]["actioncard_u"][0])
                     assets.assetChange(0, 30, 0)
                 else: 
-                    printSlow("The uber driver connects you "\
-                             "to a friend of his in Berlin "\
-                             "who will happily help you out.\n")
+                    printSlow(L1_25[0]["actioncard_u"][1])
                     assets.assetChange(0, 0, -20)
                 lvl1up()
+            # Public transportation
             elif y == L1_25[0]["results"][1]:
                 if m == 2: 
                     assets.assetChange(5, 20, 0)
@@ -129,18 +134,87 @@ def game():
                 else: 
                     assets.assetChange(5, 5, 0)
                 if actioncard() > 50: 
-                    printSlow("You got lost and lost valuable "\
-                                      "time.\n")
+                    printSlow(L1_25[0]["actioncard_p"][0])
                     assets.assetChange(0, 20, 0)
                 else: 
-                    printSlow("You forgot to validate your "\
-                                      "ticket and had to pay a penalty.\n")
+                    printSlow(L1_25[0]["actioncard_p"][1])
                     assets.assetChange(30, 0, 0)
                 lvl1up()
     elif m == 6: 
         lvl1up()
-    printSlow(". . .", 0.5)
+    printSlow("\n. . .\n", 0.5)
     printSlow("Yay, you arrived in Berlin. But how do you get to your accommodation?")
+    printSlow(input("Press enter to continue."))
+
+# Level 2: transportation from airport to accommodation 
+    m = diceRoll()
+    printSlow("You rolled a " + str(m) + ".\n")
+    if m == 1: 
+        printSlow("For some reason, you felt like walking, so you walked all "\
+                  "the way from the airport to your accommodation.\n") 
+        assets.assetChange(0, 60, 0)
+        lvl2up(2)
+    elif (m == 2 or m == 3 or m == 4 or m == 5):  
+        for x in range(len(L2_25)):
+            y = question(L2_25[x])
+            if y == L2_25[0]["results"][0]:
+                if m == 2: 
+                    assets.assetChange(45, 40, -30)
+                elif m == 3: 
+                    assets.assetChange(40, 30, -20) 
+                elif m == 4: 
+                    assets.assetChange(35, 20, -10)
+                else: 
+                    assets.assetChange(30, 10, -5)
+                if actioncard() > 50: 
+                    printSlow(L2_25[0]["actioncard_u"][0])
+                    assets.assetChange(0, 30, 0)
+                else: 
+                    printSlow(L2_25[0]["actioncard_u"][1])
+                    assets.assetChange(0, 0, -20)
+                lvl2up()
+            elif y == L2_25[0]["results"][1]:
+                if m == 2: 
+                    assets.assetChange(5, 20, 0)
+                elif m == 3: 
+                    assets.assetChange(15, 15, 0)
+                elif m == 4: 
+                    assets.assetChange(10, 10, 0)
+                else: 
+                    assets.assetChange(5, 5, 0)
+                if actioncard() > 50: 
+                    printSlow(L2_25[0]["actioncard_p"][0])
+                    assets.assetChange(0, 20, 0)
+                else: 
+                    printSlow(L2_25[0]["actioncard_p"][1])
+                    assets.assetChange(30, 0, 0)
+                lvl2up()
+    elif m == 6: 
+        lvl2up(2)
+# Possibility of adding bank account, health insurance as extra levels 
+# Level 3: Photos for residence permit/Anmeldung 
+    printSlow("You've settled in for a couple days. But for you to stay and "\
+              "become a permanent non-tourist resident, you need the residence "\
+              "permit and appropriate passport photos for it.\n")
+    printSlow(input("Press enter to continue."))
+    m = diceRoll()
+    printSlow("You rolled a " + str(m) + ".\n")
+    if m == 1: 
+        printSlow(L3_16[0]["x1"])
+        assets.assetChange(0, 40, 0)
+    if m == 2: 
+        printSlow(L3_16[0]["x2"])
+        assets.assetChange(10, 30, 0)
+    if (m == 3 or m == 4): 
+        printSlow(L3_16[0]["x34"])
+        assets.assetChange(5, 0, 0)
+        lvl3up()
+    if (m == 5 or m == 6): 
+        printSlow(L3_16[0]["x56"])
+        assets.assetChange(20, 0, 0)
+        lvl3up()
+        
+    
     
         
     
