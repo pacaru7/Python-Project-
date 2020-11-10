@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 """
-Created on Wed Oct 28 15:59:08 2020
 
 This module contains the classes for the Player and Asset specifications. 
+Below each class, there are the game-specific objects of the class. 
 
 """
 from Functions import *
@@ -14,64 +14,58 @@ class Player:
     def __init__(self, name, country): 
         self.__name = name  
         self.__country = country
-    """
-    
-    This class prescribes and stores the player features: 
-        1. Name 
-        2. Country of origin 
-    Country objects are stored in Dictionaries.py.
-
-    """ 
-     
+        
     @classmethod     
     def helptp(cls): 
         return cls.__helptip
        
     def setName(self, name): 
         self.__name = name 
+        
     def getName(self):
         return self.__name
     
     def setCountry(self, country):
-        while country not in self.__country: 
+        Country = country.lower()
+        while Country not in self.__country: 
             printSlow("The game currently does not serve this country. Sorry!\n")
             country = input(printSlow("Let's try again. What is your nationality?\n"))
         else: 
-            x = self.__country[country]
+            x = self.__country[Country]
             printSlow(x + " bureaucratic procedures will apply.\n") 
             
 # data for Player class
 stats = Player("Name",
-                   {"Austria":               "EU", 
-                   "USA":                    "USA", 
-                   "Colombia":               "Colombia", 
-                   "India":                  "India",
-                   "Belgium":                "EU", 
-                   "Bulgaria":               "EU", 
-                   "Croatia":                "EU", 
-                   "Republic of Cyprus":     "EU", 
-                   "Czech Republic":         "EU", 
-                   "Denmark":                "EU",
-                   "Estonia":                "EU", 
-                   "Finland":                "EU", 
-                   "France":                 "EU", 
-                   "Germany":                "EU", 
-                   "Greece":                 "EU", 
-                   "Hungary":                "EU", 
-                   "Ireland":                "EU", 
-                   "Italy":                  "EU", 
-                   "Latvia":                 "EU", 
-                   "Lithuania":              "EU", 
-                   "Luxembourg":             "EU", 
-                   "Malta":                  "EU", 
-                   "Netherlands":            "EU", 
-                   "Poland":                 "EU", 
-                   "Portugal":               "EU", 
-                   "Romania":                "EU", 
-                   "Slovakia":               "EU", 
-                   "Slovenia":               "EU", 
-                   "Spain":                  "EU",
-                   "Sweden":                 "EU"})
+                   {"austria":               "EU", 
+                   "usa":                    "USA", 
+                   "colombia":               "Colombia", 
+                   "india":                  "India",
+                   "belgium":                "EU", 
+                   "bulgaria":               "EU", 
+                   "croatia":                "EU", 
+                   "republic of cyprus":     "EU", 
+                   "czech republic":         "EU", 
+                   "denmark":                "EU",
+                   "estonia":                "EU", 
+                   "finland":                "EU", 
+                   "france":                 "EU", 
+                   "germany":                "EU", 
+                   "greece":                 "EU", 
+                   "hungary":                "EU", 
+                   "ireland":                "EU", 
+                   "italy":                  "EU", 
+                   "latvia":                 "EU", 
+                   "lithuania":              "EU", 
+                   "luxembourg":             "EU", 
+                   "malta":                  "EU", 
+                   "netherlands":            "EU", 
+                   "poland":                 "EU", 
+                   "portugal":               "EU", 
+                   "romania":                "EU", 
+                   "slovakia":               "EU", 
+                   "slovenia":               "EU", 
+                   "spain":                  "EU",
+                   "sweden":                 "EU"})
    
 # class for asset specification 
 class Assets: 

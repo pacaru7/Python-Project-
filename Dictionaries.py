@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 """
-Created on Fri Nov  6 12:52:58 2020
 
 This module specifies the text input for the game, such as details of 
 every pathway. There are three types of dictionaries as of now: 
