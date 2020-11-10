@@ -38,7 +38,40 @@ class Player:
             country = input(printSlow("Let's try again. What is your nationality?\n"))
         else: 
             x = self.__country[country]
-            printSlow(x + " bureaucratic procedures will apply.\n")
+            printSlow(x + " bureaucratic procedures will apply.\n") 
+            
+# data for Player class
+stats = Player("Name",
+                   {"Austria":               "EU", 
+                   "USA":                    "USA", 
+                   "Colombia":               "Colombia", 
+                   "India":                  "India",
+                   "Belgium":                "EU", 
+                   "Bulgaria":               "EU", 
+                   "Croatia":                "EU", 
+                   "Republic of Cyprus":     "EU", 
+                   "Czech Republic":         "EU", 
+                   "Denmark":                "EU",
+                   "Estonia":                "EU", 
+                   "Finland":                "EU", 
+                   "France":                 "EU", 
+                   "Germany":                "EU", 
+                   "Greece":                 "EU", 
+                   "Hungary":                "EU", 
+                   "Ireland":                "EU", 
+                   "Italy":                  "EU", 
+                   "Latvia":                 "EU", 
+                   "Lithuania":              "EU", 
+                   "Luxembourg":             "EU", 
+                   "Malta":                  "EU", 
+                   "Netherlands":            "EU", 
+                   "Poland":                 "EU", 
+                   "Portugal":               "EU", 
+                   "Romania":                "EU", 
+                   "Slovakia":               "EU", 
+                   "Slovenia":               "EU", 
+                   "Spain":                  "EU",
+                   "Sweden":                 "EU"})
    
 # class for asset specification 
 class Assets: 
@@ -58,3 +91,5 @@ class Assets:
         self.__connection -= connection 
         printSlow("You have " + str(self.__money) + " money, " + str(self.__time) + " time, " + "and " + str(self.__connection) + " connection units left.\n")
 
+# data for class specification 
+assets = Assets(100, 100, 100)

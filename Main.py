@@ -1,64 +1,16 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Sat Oct 24 18:07:48 2020
+This module contains the code for the internal game structure.
+It starts off with the setting of game parameters, the player features 
+as specified in Classes.py, and continues with the specific game level
+structures.
 
-@author: coco
 """
 from Classes import *
-
-# data for Player class
-stats = Player("Name",
-                   {"Austria":               "EU", 
-                   "USA":                    "USA", 
-                   "Colombia":               "Colombia", 
-                   "India":                  "India",
-                   "Belgium":                "EU", 
-                   "Bulgaria":               "EU", 
-                   "Croatia":                "EU", 
-                   "Republic of Cyprus":     "EU", 
-                   "Czech Republic":         "EU", 
-                   "Denmark":                "EU",
-                   "Estonia":                "EU", 
-                   "Finland":                "EU", 
-                   "France":                 "EU", 
-                   "Germany":                "EU", 
-                   "Greece":                 "EU", 
-                   "Hungary":                "EU", 
-                   "Ireland":                "EU", 
-                   "Italy":                  "EU", 
-                   "Latvia":                 "EU", 
-                   "Lithuania":              "EU", 
-                   "Luxembourg":             "EU", 
-                   "Malta":                  "EU", 
-                   "Netherlands":            "EU", 
-                   "Poland":                 "EU", 
-                   "Portugal":               "EU", 
-                   "Romania":                "EU", 
-                   "Slovakia":               "EU", 
-                   "Slovenia":               "EU", 
-                   "Spain":                  "EU",
-                   "Sweden":                 "EU"})
-
-# data for class specification 
-assets = Assets(100, 100, 100)
- 
-# function for dict junctions
-def question(aDictionary):
-    userInput = None
-    printSlow(aDictionary["question"])
-    while userInput not in aDictionary["answers"]:   
-        printSlow("Write " + aDictionary["answers"][0] + " or " 
-                  + aDictionary["answers"][1]+ ".\n")
-        userInput = input() 
-        if userInput == aDictionary["answers"][0].lower():
-            printSlow(aDictionary["results"][0])
-            return aDictionary["results"][0]
-        elif userInput == aDictionary["answers"][1].lower():
-            printSlow(aDictionary["results"][1])
-            return aDictionary["results"][1]
-        else:
-            printSlow(userInput + " is not a Valid Answer.\n")        
+from Dictionaries import *
+from Functions import *
+   
        
 # function for initial game setting, including name, country & assets 
 def game_setting(): 
@@ -67,8 +19,6 @@ def game_setting():
     printSlow("Welcome to the game, " + stats.getName() + "!\n")
     stats.setCountry(str(input(printSlow("Your nationality will "\
     "determine your gameplay. What is the country of your nationality?\n"))))         
-
-from Dictionaries import *
 
 # function for gameplay
 def game(): 

@@ -23,3 +23,20 @@ def diceRoll():
 # function for actioncard 
 def actioncard(): 
     return random.randrange(101)
+
+# function for dict junctions
+def question(aDictionary):
+    userInput = None
+    printSlow(aDictionary["question"])
+    while userInput not in aDictionary["answers"]:   
+        printSlow("Write " + aDictionary["answers"][0] + " or " 
+                  + aDictionary["answers"][1]+ ".\n")
+        userInput = input() 
+        if userInput == aDictionary["answers"][0].lower():
+            printSlow(aDictionary["results"][0])
+            return aDictionary["results"][0]
+        elif userInput == aDictionary["answers"][1].lower():
+            printSlow(aDictionary["results"][1])
+            return aDictionary["results"][1]
+        else:
+            printSlow(userInput + " is not a Valid Answer.\n")      
