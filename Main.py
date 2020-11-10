@@ -115,7 +115,7 @@ def game():
         printSlow("For some reason, you felt like walking, so you walked all "\
                   "the way from the airport to your accommodation.\n") 
         assets.assetChange(0, 60, 0)
-        printSlow(Lvlup[0]["lvl2"])
+        printSlow(Lvlup[0]["lvl2"][1])
     elif (m == 2 or m == 3 or m == 4 or m == 5):  
         for x in range(len(L2_25)):
             y = question(L2_25[x])
@@ -134,7 +134,7 @@ def game():
                 else: 
                     printSlow(L2_25[0]["actioncard_u"][1])
                     assets.assetChange(0, 0, -20)
-                printSlow(Lvlup[0]["lvl2"])
+                printSlow(Lvlup[0]["lvl2"][1])
             elif y == L2_25[0]["results"][1]:
                 if m == 2: 
                     assets.assetChange(5, 20, 0)
@@ -150,9 +150,9 @@ def game():
                 else: 
                     printSlow(L2_25[0]["actioncard_p"][1])
                     assets.assetChange(30, 0, 0)
-                printSlow(Lvlup[0]["lvl2"])
+                printSlow(Lvlup[0]["lvl2"][1])
     elif m == 6: 
-        printSlow(Lvlup[0]["lvl2"])
+        printSlow(Lvlup[0]["lvl2"][0])
 # Possibility of adding bank account, health insurance as extra levels 
 # Level 3: Photos for residence permit/Anmeldung 
     printSlow("You've settled in for a couple days. But for you to stay and "\
@@ -170,19 +170,54 @@ def game():
     if (m == 3 or m == 4): 
         printSlow(L3_16[0]["x34"])
         assets.assetChange(5, 0, 0)
-        printSlow(Lvlup[0]["lvl3"])
     if (m == 5 or m == 6): 
         printSlow(L3_16[0]["x56"])
         assets.assetChange(20, 0, 0)
     printSlow(Lvlup[0]["lvl3"])
 # Paths are yet to be finished !!
 # Level 4: Anmeldung or Residence Permit 
-    x = printSlow(input("Which one do you want to do first: " \
+    u = input(printSlow("Which one do you want to do first: " \
                         "Anmeldung or residence permit?\n"))
-    if x.lower() == "anmeldung": 
-        pass
-    elif x.lower() == "residence permit": 
-        pass 
+    if u.lower() == "residence permit": 
+        m = diceRoll()
+        printSlow("You rolled a " + str(m) + ".\n")
+        if (m == 1 or m == 2): 
+            printSlow(L4_1[0]["x12"]) 
+            assets.assetChange(50, 50, 50)
+            if actioncard() > 5: 
+                printSlow(L4_1[0]["actioncard_12"])
+                assets.assetChange(0, 0, -20)
+        elif (m == 3 or m == 4):  
+            printSlow(L4_1[0]["x34"])
+            assets.assetChange(50, 50, 50)
+            if actioncard() > 25: 
+                printSlow(L4_1[0]["actioncard_34"][0])
+                assets.assetChange(0, 100, 0)
+            elif actioncard() > 30: 
+                printSlow(L4_1[0]["actioncard_34"][1])
+                assets.assetChange(0, 50, 0)
+        elif (m == 5 or m == 6): 
+            printSlow(L4_1[0]["x56"])
+            assets.assetChange(50, 50, 50)
+            
+     # function for level up       
+    elif u.lower() == "anmeldung":
+        m = diceRoll()
+        printSlow("You rolled a " + str(m) + ".\n")
+        if (m == 1): 
+            printSlow(L4_2[0]["x1"]) 
+            #assets.assetChange(50, 50, 50)
+            
+        elif (m == 2):  
+            printSlow(L4_2[0]["x2"])
+            #assets.assetChange(50, 50, 50)
+        
+        elif (m == 3): 
+            printSlow(L4_2[0]["x3"])
+            #assets.assetChange(50, 50, 50)
+        elif (m == 4 or m == 5 or m == 6): 
+            printSlow(L4_2[0]["x4_6"])
+        
     
 
 game()

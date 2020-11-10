@@ -73,3 +73,37 @@ L3_16 = [{
     "x56": "You went to a professional photo shop."
     
     }]
+    
+# Level 4.1 (residence permit)
+L4_1 = [{ 
+    "x12": "A mean, non-English-speaking public servant grunts at you. It "\
+            "looks like you will have to exert some additional resources "\
+            "pass this test.\n",
+    "x34": "A moody public servant with broken English greets you. Let's "\
+            "see whether the force is with you.\n", 
+    "x56": "Bingo! A nice, English-speaking public servant welcomes you. "\
+            "Today is a good day.\n", 
+    "actioncard_12": "Weirdly enough, the public servant finds you pleasant "\
+                    "and befriends you. Either you are a very likable or "\
+                    "questionable person.\n", 
+    "actioncard_34": ["The public servant is in a very bad mood today. "\
+                        "You better make a new appointment and hope to "\
+                        "meet someone else next time.\n", "The public servant "\
+                        "is in a bad moody today and appears not cooperative. "\
+                        "You have to wait in line.\n"],   
+    
+    }]
+    
+# Level 4.2 (Anmeldung)
+L4_2 = [{
+    "x1": "You slept in and missed you appointment. You need to reschedule "\
+        "for two months later.\n",
+    "x2": "You forgot to bring the necessary documents. You need to reschedule "\
+        "for 2 months later.\n",
+    "x3": "You went to the wrong Bürgeramt and haste to the right one.\n",
+    "x4_6": "You brought the passport, completed registration form, and "\
+            "confirmation of your moving in. You also made it to your "\
+            "appointment on time. Yay!"
+    
+    
+    }]

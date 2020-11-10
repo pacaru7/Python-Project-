@@ -20,10 +20,10 @@ class Player:
         return cls.__helptip
        
     def setName(self, name): 
-        self.__name = name 
-        
+        self.__name = name         
     def getName(self):
         return self.__name
+    
     
     def setCountry(self, country):
         Country = country.lower()
