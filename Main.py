@@ -12,8 +12,25 @@ from Dictionaries import *
 from Functions import *
    
        
-# function for initial game setting, including name, country & assets 
 def game_setting(): 
+    """
+    
+
+    Returns
+    -------
+    This function sets the player parameters, using the methods setName()
+    and setCountry() from the class Player() in the Classes.py file. It does 
+    not return any value but is designed to take as input the name and the 
+    country of the player. 
+    
+    The name of the player can be any type of string or even number 
+    constellation. The country of the player ignores letter case and can 
+    only take the country name (e.g. Germany) as opposed to the nationality
+    (German) as input.
+    
+    The objects of the class are specified in Classes.py file.
+
+    """
     printSlow("Welcome to the game!\n")
     stats.setName(str(input(printSlow("Please tell us your name.\n"))))
     printSlow("Welcome to the game, " + stats.getName() + "!\n")
@@ -22,6 +39,15 @@ def game_setting():
 
 # function for gameplay
 def game(): 
+    """
+    
+
+    Returns
+    -------
+    This function contains aside from the setting of the game parameters 
+    all the existing game pathways.
+
+    """
     game_setting()
     printSlow("You've somehow managed to get German Visa.\n"\
     "How will you proceed to the airport for your flight to Berlin?\n"\
