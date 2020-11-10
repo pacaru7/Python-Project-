@@ -2,37 +2,31 @@
 """
 Created on Wed Oct 28 15:59:08 2020
 
-@author: ba-li
-"""
-# function for printing strings a bit more slowly
-import sys, time
-def printSlow(sth, x = 0.01):
-    for letter in sth:
-        sys.stdout.write(letter)
-        sys.stdout.flush()
-        time.sleep(x)
-    return ""
- 
-# function for the dice roll
-import random
-def diceRoll():
-  return random.choice([1,2,3,4,5,6])
+This module contains the classes for the Player and Asset specifications. 
 
-def actioncard(): 
-    return random.randrange(101)
+"""
+from Functions import *
 
 # class for specification of a player
 class Player:
     __helptip = "A player has certain features aka instances: country of origin."
-    
+
     def __init__(self, name, country): 
         self.__name = name  
         self.__country = country
+    """
+    
+    This class prescribes and stores the player features: 
+        1. Name 
+        2. Country of origin 
+    Country objects are stored in Dictionaries.py.
+
+    """ 
      
     @classmethod     
     def helptp(cls): 
         return cls.__helptip
-        
+       
     def setName(self, name): 
         self.__name = name 
     def getName(self):

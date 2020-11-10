@@ -2,7 +2,12 @@
 """
 Created on Fri Nov  6 12:52:58 2020
 
-@author: ba-li
+This module specifies the text input for the game, such as details of 
+every pathway. There are three types of dictionaries as of now: 
+    1. Lvlup-nature: contains messages for the successful clearance of a level.
+    2. Level-nature: question, answer and result messages of every pathway. 
+    3. Dice-nature: dice roll options
+
 """
 
 # Level up messages 

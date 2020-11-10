@@ -5,7 +5,7 @@ Created on Sat Oct 24 18:07:48 2020
 
 @author: coco
 """
-from Classes import Player, printSlow, diceRoll, Assets, actioncard
+from Classes import *
 
 # data for Player class
 stats = Player("Name",
@@ -39,6 +39,9 @@ stats = Player("Name",
                    "Slovenia":               "EU", 
                    "Spain":                  "EU",
                    "Sweden":                 "EU"})
+
+# data for class specification 
+assets = Assets(100, 100, 100)
  
 # function for dict junctions
 def question(aDictionary):
@@ -65,7 +68,7 @@ def game_setting():
     stats.setCountry(str(input(printSlow("Your nationality will "\
     "determine your gameplay. What is the country of your nationality?\n"))))         
 
-from Dictionaries import L1_1, L1_25, L2_25, L3_16, Lvlup 
+from Dictionaries import *
 
 # function for gameplay
 def game(): 
@@ -195,7 +198,7 @@ def game():
     if (m == 5 or m == 6): 
         printSlow(L3_16[0]["x56"])
         assets.assetChange(20, 0, 0)
-        printSlow(Lvlup[0]["lvl3"])
+    printSlow(Lvlup[0]["lvl3"])
 # Paths are yet to be finished !!
 # Level 4: Anmeldung or Residence Permit 
     x = printSlow(input("Which one do you want to do first: " \
@@ -205,13 +208,6 @@ def game():
     elif x.lower() == "residence permit": 
         pass 
     
-        
-    
-    
-        
-    
-# data for class specification 
-assets = Assets(100, 100, 100)
 
 game()
 
