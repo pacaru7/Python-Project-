@@ -20,12 +20,35 @@ class Player:
         return cls.__helptip
        
     def setName(self, name): 
-        self.__name = name         
+        self.__name = name 
+    """
+    
+    Parameters
+    ----------
+    name : STRING
+           String to set name.
+
+    Returns
+    -------
+    str
+        The input is the output.
+
+    """
+      
     def getName(self):
         return self.__name
+    """
+    
+    Returns
+    -------
+    str
+        Returns the name as specified in setName().
+
+    """
     
     
-    def setCountry(self, country):
+    
+    def setCountry(self, country):    
         Country = country.lower()
         while Country not in self.__country: 
             printSlow("The game currently does not serve this country. Sorry!\n")
@@ -33,6 +56,27 @@ class Player:
         else: 
             x = self.__country[Country]
             printSlow(x + " bureaucratic procedures will apply.\n") 
+        """
+    
+        Parameters
+        ----------
+        country : STRING
+              Name of the country, regardless of letter case.
+              
+
+        Returns
+        -------
+        str
+            While the string input does not correspond to any 
+            objects as specified in the dictionary, the function
+            will return a default string. 
+        
+            If the string input does correspond to any objects 
+            as specified in the dictionary, the function is going 
+            to set the country and return a default string to 
+            confirm the registration of the country.
+    
+        """
             
 # data for Player class
 stats = Player("Name",
@@ -78,12 +122,37 @@ class Assets:
     
     def assetStatus(self): 
         printSlow("You have " + str(self.__money) + " money, " + str(self.__time) + " time, " + "and " + str(self.__connection) + " connection units left.\n")
+        """
+    
+        Returns
+        -------
+        str
+            Default string specifying current distribution of 
+            assets. 
+
+        """
         
-    def assetChange(self, money, time, connection): 
+    def assetChange(self, money, time, connection):
         self.__money -= money
         self.__time -= time 
         self.__connection -= connection 
         printSlow("You have " + str(self.__money) + " money, " + str(self.__time) + " time, " + "and " + str(self.__connection) + " connection units left.\n")
+        """
+    
+        Parameters
+        ----------
+        money       : INT
+        time        : INT
+        connection  : INT
+        
+
+        Returns
+        -------
+        str
+            Default string returning the distribution of assets
+            after specified deduction.
+            
+        """
 
 # data for class specification 
 assets = Assets(100, 100, 100)

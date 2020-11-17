@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module Main</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>Main</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:c%3A%5Cusers%5Cba-li%5Conedrive%5Cdokumente%5Cgithub%5Cpython-project-%5Cmain.py">c:\users\ba-li\onedrive\dokumente\github\python-project-\main.py</a></font></td></tr></table>
+    <p><tt>This&nbsp;module&nbsp;contains&nbsp;the&nbsp;code&nbsp;for&nbsp;the&nbsp;internal&nbsp;game&nbsp;structure.<br>
+It&nbsp;starts&nbsp;off&nbsp;with&nbsp;the&nbsp;setting&nbsp;of&nbsp;game&nbsp;parameters,&nbsp;the&nbsp;player&nbsp;features&nbsp;<br>
+as&nbsp;specified&nbsp;in&nbsp;Classes.py,&nbsp;and&nbsp;continues&nbsp;with&nbsp;the&nbsp;specific&nbsp;game&nbsp;level<br>
+structures.<br>
+&nbsp;<br>
+Things&nbsp;we&nbsp;still&nbsp;have&nbsp;to&nbsp;figure&nbsp;out:&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Default&nbsp;option&nbsp;when&nbsp;you&nbsp;don't&nbsp;have&nbsp;any&nbsp;units&nbsp;left&nbsp;to&nbsp;expend.</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="random.html">random</a><br>
+</td><td width="25%" valign=top><a href="sys.html">sys</a><br>
+</td><td width="25%" valign=top><a href="time.html">time</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-game"><strong>game</strong></a>()</dt><dd><tt>Returns<br>
+-------<br>
+This&nbsp;function&nbsp;contains&nbsp;aside&nbsp;from&nbsp;the&nbsp;setting&nbsp;of&nbsp;the&nbsp;game&nbsp;parameters&nbsp;<br>
+all&nbsp;the&nbsp;existing&nbsp;game&nbsp;pathways.</tt></dd></dl>
+ <dl><dt><a name="-game_setting"><strong>game_setting</strong></a>()</dt><dd><tt>Returns<br>
+-------<br>
+This&nbsp;function&nbsp;sets&nbsp;the&nbsp;player&nbsp;parameters,&nbsp;using&nbsp;the&nbsp;methods&nbsp;setName()<br>
+and&nbsp;setCountry()&nbsp;from&nbsp;the&nbsp;class&nbsp;Player()&nbsp;in&nbsp;the&nbsp;Classes.py&nbsp;file.&nbsp;It&nbsp;does&nbsp;<br>
+not&nbsp;return&nbsp;any&nbsp;value&nbsp;but&nbsp;is&nbsp;designed&nbsp;to&nbsp;take&nbsp;as&nbsp;input&nbsp;the&nbsp;name&nbsp;and&nbsp;the&nbsp;<br>
+country&nbsp;of&nbsp;the&nbsp;player.&nbsp;<br>
+&nbsp;<br>
+The&nbsp;name&nbsp;of&nbsp;the&nbsp;player&nbsp;can&nbsp;be&nbsp;any&nbsp;type&nbsp;of&nbsp;string&nbsp;or&nbsp;even&nbsp;number&nbsp;<br>
+constellation.&nbsp;The&nbsp;country&nbsp;of&nbsp;the&nbsp;player&nbsp;ignores&nbsp;letter&nbsp;case&nbsp;and&nbsp;can&nbsp;<br>
+only&nbsp;take&nbsp;the&nbsp;country&nbsp;name&nbsp;(e.g.&nbsp;Germany)&nbsp;as&nbsp;opposed&nbsp;to&nbsp;the&nbsp;nationality<br>
+(German)&nbsp;as&nbsp;input.<br>
+&nbsp;<br>
+The&nbsp;objects&nbsp;of&nbsp;the&nbsp;class&nbsp;are&nbsp;specified&nbsp;in&nbsp;Classes.py&nbsp;file.</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>L1_1</strong> = [{'answers': ['Go home', 'Pay'], 'question': 'Will you go home or pay 20 units of money for a new flight?<font color="#c040c0">\n</font>', 'results': ['You chose to go home.<font color="#c040c0">\n</font>', 'You chose to pay 20 units of money for a new flight.<font color="#c040c0">\n</font>']}]<br>
+<strong>L1_25</strong> = [{'actioncard_p': ['You got lost and lost valuable time.<font color="#c040c0">\n</font>', 'You forgot to validate your ticket and had to pay a penalty.<font color="#c040c0">\n</font>'], 'actioncard_u': ['You temporarily got stuck in a traffic jam and lost some valuable time.<font color="#c040c0">\n</font>', 'The uber driver connects you to a friend of his in Berlin who will happily help you out.<font color="#c040c0">\n</font>'], 'answers': ['Uber', 'Public'], 'question': 'Will you take an Uber or Public transportation?<font color="#c040c0">\n</font>', 'results': ['You chose Uber.<font color="#c040c0">\n</font>', 'You chose public transportation.<font color="#c040c0">\n</font>']}]<br>
+<strong>L2_25</strong> = [{'actioncard_p': ['You got lost and lost valuable time.<font color="#c040c0">\n</font>', 'You forgot to validate your ticket and had to pay a penalty.<font color="#c040c0">\n</font>'], 'actioncard_u': ['You temporarily got stuck in a traffic jam and lost some valuable time.<font color="#c040c0">\n</font>', 'The uber driver has a nephew in Berlin who will help you out in need.<font color="#c040c0">\n</font>'], 'answers': ['Uber', 'Public'], 'question': 'Will you take an Uber or Public transportation?<font color="#c040c0">\n</font>', 'results': ['You chose Uber.<font color="#c040c0">\n</font>', 'You chose public transportation.<font color="#c040c0">\n</font>']}]<br>
+<strong>L3_16</strong> = [{'x1': "Oops, you've tried to use old photos. They got rejected and you wasted time in that attempt.<font color="#c040c0">\n</font>", 'x2': 'You went to a photo box but there was a rat that...ded to go the hospital, and lost time and money.<font color="#c040c0">\n</font>', 'x34': 'You used a photo box at some random S-Bahn stati... close to your home and it worked out just fine.<font color="#c040c0">\n</font>', 'x56': 'You went to a professional photo shop.'}]<br>
+<strong>L4_1</strong> = [{'actioncard_12': 'Weirdly enough, the public servant finds you ple...r you are a very likable or questionable person.<font color="#c040c0">\n</font>', 'actioncard_34': ['The public servant is in a very bad mood today. ...intment and hope to meet someone else next time.<font color="#c040c0">\n</font>', 'The public servant is in a bad moody today and appears not cooperative. You have to wait in line.<font color="#c040c0">\n</font>'], 'x12': 'A mean, non-English-speaking public servant grun... exert some additional resources pass this test.<font color="#c040c0">\n</font>', 'x34': "A moody public servant with broken English greets you. Let's see whether the force is with you.<font color="#c040c0">\n</font>", 'x56': 'Bingo! A nice, English-speaking public servant welcomes you. Today is a good day.<font color="#c040c0">\n</font>'}]<br>
+<strong>L4_2</strong> = [{'x1': 'You slept in and missed you appointment. You need to reschedule for two months later.<font color="#c040c0">\n</font>', 'x2': 'You forgot to bring the necessary documents. You need to reschedule for 2 months later.<font color="#c040c0">\n</font>', 'x3': 'You went to the wrong Bürgeramt and haste to the right one.<font color="#c040c0">\n</font>', 'x4_6': 'You brought the passport, completed registration...ou also made it to your appointment on time. Yay!'}]<br>
+<strong>Lvlup</strong> = [{'lvl1': 'Congratulations. You made it to your flight on time, and will be arriving in Berlin shortly.<font color="#c040c0">\n</font>', 'lvl2': ["You got an international SIM card and can access...ation.<font color="#c040c0">\n</font>Yay, you've made it to your accomodation!<font color="#c040c0">\n</font>", "Yay, you've made it to your accomodation!<font color="#c040c0">\n</font>"], 'lvl3': 'Your passport photos fit the criteria and you are ready to proceed to your appointments.<font color="#c040c0">\n</font>'}]<br>
+<strong>assets</strong> = &lt;Classes.Assets object&gt;<br>
+<strong>stats</strong> = &lt;Classes.Player object&gt;</td></tr></table>
+</body></html>
