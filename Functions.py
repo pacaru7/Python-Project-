@@ -81,15 +81,13 @@ def question(aDictionary):
     """
     userInput = None
     printSlow(aDictionary["question"])
-    while userInput not in aDictionary["answers"]:   
-        printSlow("Write " + aDictionary["answers"][0] + " or " 
-                  + aDictionary["answers"][1]+ ".\n")
-        userInput = input() 
-        if userInput == aDictionary["answers"][0].lower():
-            printSlow(aDictionary["results"][0])
-            return aDictionary["results"][0]
-        elif userInput == aDictionary["answers"][1].lower():
-            printSlow(aDictionary["results"][1])
-            return aDictionary["results"][1]
-        else:
-            printSlow(userInput + " is not a Valid Answer.\n")      
+    printSlow("Write " +'"'+ aDictionary["answers"][0] + '"' + " or " 
+                  + '"' + aDictionary["answers"][1]+  '"'+".\n")
+    userInput = str(input()).strip()
+    if userInput not in aDictionary["answers"]:
+        printSlow(userInput + " is not a Valid Answer.\n")   
+        return question(aDictionary)
+    else:
+        index = aDictionary["answers"].index(userInput)
+        printSlow(aDictionary["results"][index])
+        return aDictionary["results"][index]

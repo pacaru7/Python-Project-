@@ -18,10 +18,11 @@ Lvlup = [{
              "maps to get to your accomodation.\n" \
               "Yay, you've made it to your accomodation!\n", 
               "Yay, you've made it to your accomodation!\n"], 
-    "lvl3": "Your passport photos fit the criteria and you are ready to "\
-              "proceed to your appointments.\n"
-    
-    }]
+    "lvl3":[ "Your passport photos fit the criteria and you are ready to "\
+              "proceed to your appointments.\n"], 
+    "lvl4": ["You got a nice English-speaking public servant"\
+            "Yay!,your residence permit have been approved "]
+        }]
 
 # Level 1 (transportation) for dice roll of 1
 L1_1 = [{

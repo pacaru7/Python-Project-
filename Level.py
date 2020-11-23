@@ -20,16 +20,19 @@ def level1():
     """
     # Level 1: transportation from residence to airport 
     m = diceRoll()
+    ##m=
     printSlow("You rolled a " + str(m) + ".\n")
     if m == 1: 
-        for x in range(len(L1_1)): 
-            y = question(L1_1[x])
+        ##for x in range(len(L1_1)): 
+        ## just one question
+            y = question(L1_1[0])
             if y == L1_1[0]["results"][0]: 
                 printSlow("You went home. Gameover.")
+                exit ()
             elif y == L1_1[0]["results"][1]: 
                 assets.assetChange(20, 0, 0)
-                printSlow(Lvlup[0]["lvl1"])
     elif (m == 2 or m == 3 or m == 4 or m == 5):  
+        # for not necessary. just one question...
         for x in range(len(L1_25)):
             y = question(L1_25[x])
             # Uber
@@ -42,7 +45,7 @@ def level1():
                     assets.assetChange(35, 20, -10)
                 else: 
                     assets.assetChange(30, 10, -5)
-                if actioncard() > 50: 
+                if actioncard()% 2 == 0:  
                     printSlow(L1_25[0]["actioncard_u"][0])
                     assets.assetChange(0, 30, 0)
                 else: 
@@ -59,13 +62,14 @@ def level1():
                     assets.assetChange(5, 10, 0)
                 else: 
                     assets.assetChange(5, 5, 0)
-                if actioncard() > 50: 
+                if actioncard()%2 == 0: 
                     printSlow(L1_25[0]["actioncard_p"][0])
                     assets.assetChange(0, 20, 0)
                 else: 
                     printSlow(L1_25[0]["actioncard_p"][1])
                     assets.assetChange(30, 0, 0)
                 printSlow(Lvlup[0]["lvl1"])
+        ## if it is 6 continue here
     elif m == 6: 
         printSlow(Lvlup[0]["lvl1"])
     printSlow("\n. . .\n", 0.5)
@@ -90,6 +94,7 @@ def level2():
         assets.assetChange(0, 60, 0)
         printSlow(Lvlup[0]["lvl2"][1])
     elif (m == 2 or m == 3 or m == 4 or m == 5):  
+        # for not necessary. just one question...
         for x in range(len(L2_25)):
             y = question(L2_25[x])
             if y == L2_25[0]["results"][0]:
@@ -179,6 +184,11 @@ def level4():
     if u.lower() == "anmeldung": 
         Anmeldung()
         Residencepermit()
+    else:
+        printSlow(u + " is not a valid answer.")
+        level4()
+    
+   
     
 def Anmeldung():
     """
@@ -202,10 +212,11 @@ def Anmeldung():
     elif (m == 3 or m == 4):  
         printSlow(L4_1[0]["x34"])
         assets.assetChange(50, 50, 50)
-        if actioncard() > 25: 
+         ## 25 % should be 100-25
+        if actioncard() > 75: 
             printSlow(L4_1[0]["actioncard_34"][0])
             assets.assetChange(0, 100, 0)
-        elif actioncard() > 30: 
+        elif actioncard() > 70: 
             printSlow(L4_1[0]["actioncard_34"][1])
             assets.assetChange(0, 50, 0)
     elif (m == 5 or m == 6): 

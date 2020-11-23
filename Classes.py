@@ -19,64 +19,26 @@ class Player:
     def helptp(cls): 
         return cls.__helptip
        
-    def setName(self, name): 
-        self.__name = name 
-    """
-    
-    Parameters
-    ----------
-    name : STRING
-           String to set name.
-
-    Returns
-    -------
-    str
-        The input is the output.
-
-    """
-      
+    def setName(self):
+        name = str(input(printSlow("Please tell us your name.\n")))
+        name = name.strip()
+        if(name==""):
+            self.setName()
+        else:
+            self.__name = name         
     def getName(self):
         return self.__name
-    """
+    def getCountry(self):
+        return self.__country
     
-    Returns
-    -------
-    str
-        Returns the name as specified in setName().
-
-    """
-    
-    
-    
-    def setCountry(self, country):    
-        Country = country.lower()
-        while Country not in self.__country: 
+    def setCountry(self, country):
+        Country = country.strip().lower()
+        if Country not in self.__country: 
             printSlow("The game currently does not serve this country. Sorry!\n")
-            country = input(printSlow("Let's try again. What is your nationality?\n"))
+            country = self.setCountry(input(str(printSlow("Let's try again. What is your nationality?\n"))))
         else: 
-            x = self.__country[Country]
-            printSlow(x + " bureaucratic procedures will apply.\n") 
-        """
-    
-        Parameters
-        ----------
-        country : STRING
-              Name of the country, regardless of letter case.
-              
-
-        Returns
-        -------
-        str
-            While the string input does not correspond to any 
-            objects as specified in the dictionary, the function
-            will return a default string. 
-        
-            If the string input does correspond to any objects 
-            as specified in the dictionary, the function is going 
-            to set the country and return a default string to 
-            confirm the registration of the country.
-    
-        """
+            self.__country = self.__country[Country]
+            printSlow(self.__country + " bureaucratic procedures will apply.\n") 
             
 # data for Player class
 stats = Player("Name",
@@ -121,38 +83,42 @@ class Assets:
         self.__connection = connection
     
     def assetStatus(self): 
-        printSlow("You have " + str(self.__money) + " money, " + str(self.__time) + " time, " + "and " + str(self.__connection) + " connection units left.\n")
-        """
-    
-        Returns
-        -------
-        str
-            Default string specifying current distribution of 
-            assets. 
-
-        """
+        printSlow("You have " + str(self.__money) + " money, " + str(self.__time) + " time, " + str(self.__connection) + " connection units left.\n")
         
-    def assetChange(self, money, time, connection):
-        self.__money -= money
-        self.__time -= time 
-        self.__connection -= connection 
-        printSlow("You have " + str(self.__money) + " money, " + str(self.__time) + " time, " + "and " + str(self.__connection) + " connection units left.\n")
-        """
-    
-        Parameters
-        ----------
-        money       : INT
-        time        : INT
-        connection  : INT
-        
-
-        Returns
-        -------
-        str
-            Default string returning the distribution of assets
-            after specified deduction.
+    def assetChange(self, money, time, connection): 
+        tempMoney = self.__money - money
+        tempTime = self.__time - time
+        tempConnection = self.__connection - connection
+        if(tempMoney < 0):
+            ## no more money. gg (good game).
+            self.__money = 0
+        else:
+            self.__money -= money
             
-        """
-
+        if(tempTime < 0):
+            self.__time = 0
+        else:
+            self.__time -= time
+        
+        if(tempConnection < 0):
+            self.__connection = 0
+        else:
+            self.__connection -= connection
+        self.assetStatus()
+        self.check()
+    def check(self):
+        x = 0
+        if(self.__money <= 0):
+            printSlow("Sorry. You don't have enough money to continue.\n")
+            x = 1
+        if(self.__time <= 0):
+            printSlow("Sorry. You don't have enough time to continue.\n")
+            x = 1
+        if(self.__connection <= 0):
+            printSlow("Sorry. You don't have enough connection to continue.\n")
+            x = 1
+        if(x!=0):
+            printSlow("Game over.")
+            exit()
 # data for class specification 
-assets = Assets(100, 100, 100)
+assets = Assets(1000, 1000, 1000)

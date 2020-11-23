@@ -34,7 +34,7 @@ def game_setting():
 
     """
     printSlow("Welcome to the game!\n")
-    stats.setName(str(input(printSlow("Please tell us your name.\n"))))
+    stats.setName()
     printSlow("Welcome to the game, " + stats.getName() + "!\n")
     stats.setCountry(str(input(printSlow("Your nationality will "\
     "determine your gameplay. What is the country of your nationality?\n"))))         
@@ -51,8 +51,12 @@ def game():
 
     """
     game_setting()
-    printSlow("You've somehow managed to get German Visa.\n"\
-    "How will you proceed to the airport for your flight to Berlin?\n"\
+    countryName = stats.getCountry()
+    countryVisas = [ 'Colombia','India']
+    if(countryName in countryVisas):
+        printSlow("You've somehow managed to get German Visa.\n")
+        printSlow(input("Press enter to continue.\n"))
+    printSlow("How will you proceed to the airport for your flight to Berlin?\n"\
     "Let's see if the luck is in your hands.\n")
     printSlow(input("Press enter to continue."))
 
@@ -64,6 +68,10 @@ def game():
 
     
 
+game()
+
+
+    
     
     
     
