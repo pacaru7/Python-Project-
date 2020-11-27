@@ -106,6 +106,7 @@ class Assets:
             self.__connection -= connection
         self.assetStatus()
         self.check()
+        
     def check(self):
         x = 0
         if(self.__money <= 0):
@@ -119,6 +120,6 @@ class Assets:
             x = 1
         if(x!=0):
             printSlow("Game over.")
-            exit()
+        
 # data for class specification 
 assets = Assets(1000, 1000, 1000)
