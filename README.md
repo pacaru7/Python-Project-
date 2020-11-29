@@ -10,8 +10,13 @@ It could serve as a preparation tool for incoming internationals or a fun way to
 This link will direct you to the visual map of the game: https://miro.com/app/board/o9J_khpVpzs=/
 
 ## Installation: 
-The packages required for this game so far are: sys, time, random. 
-PLease make sure to download all currently existing code scripts, which are - as of 1st Nov 2020 - the Classes.py and Main.py files.
+The packages required for this game are: sys, time, random. 
+PLease make sure to download all currently existing code scripts, which are: 
+- Classes.py: contains classes for setting up the player and asset statistics.
+- Dictionaries.py: contains the storyline and paythway strings.
+- Functions.py: contains system functions, such as randomized dice roll. 
+- Level.py: contains the structure of each level as well as the setup of the game. 
+- Main.py: contains level functions for clarity's sake.
 
 ## Usage: 
 To get a demo of the game, please store the files into the same folder. Try to avoid changes to the name. Double-clicking the Main.py file should start the game. 
