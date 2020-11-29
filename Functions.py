@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 
-This module contains system (?) functions.
+This module contains system functions.
 
 """
 
@@ -42,7 +42,16 @@ def diceRoll():
     return random.choice([1,2,3,4,5,6])
 
 def diceRollPrompt():
+    """
+    
+
+    Returns
+    -------
+    Character string to announce dice roll. 
+
+    """
     printSlow(input("To roll the dice press ENTER"))
+    
 # function for actioncard 
 def actioncard(): 
     """

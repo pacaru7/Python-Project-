@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-This module contains the code for the internal game structure.
+This module only contains the functions from the Level.py module for 
+clarity's sake.
+
 It starts off with the setting of game parameters, the player features 
 as specified in Classes.py, and continues with the specific game level
-structures.
-Things we still have to figure out: 
-    - Default option when you don't have any units left to expend. 
+structures as specified in Level.py and Dictionaries.py. 
 """
 
 from Functions import *
@@ -30,7 +30,6 @@ def game():
     level4() 
 
     
-game()
 
 
     

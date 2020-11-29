@@ -32,6 +32,16 @@ def game_setting():
     "determine your gameplay. What is the country of your nationality?\n")))) 
         
 def level0():
+    """
+    
+
+    Returns
+    -------
+    This function checks whether the country of origin was Colombia or India
+    and returns a character string related to the acquisition of German Visa, 
+    and contains the transition strings from the game setup to the game itself.
+
+    """
     
     countryName = stats.getCountry()
     countryVisas = [ 'Colombia','India']
