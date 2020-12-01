@@ -28,11 +28,5 @@ def game():
 # Possibility of adding bank account, health insurance as extra levels 
     level3()
     level4() 
-
-    
-
-
-    
-    
-    
+ 
 game()
