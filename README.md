@@ -23,4 +23,4 @@ To get a demo of the game, please store the files into the same folder. Try to a
 Please let us know if it does not. 
 
 ## Credits: 
-Python Group No.11
+Paula Cabrera, Charumati Haran, Ba-Linh Le, Coco Palacios
